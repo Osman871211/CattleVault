@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Login - Access your CattleVault Account to buy or sell cattle.">
+    <title>Login | CattleVault</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 17.9V19H7v2h10v-2h-4v-1.1c2.25-.41 4-2.39 4-4.9V7c0-1.1-.9-2-2-2z"/></svg></div>
+                    Cattle<span>Vault</span>
+                </a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="cows.html" class="nav-link">Marketplace</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+
+                <div class="nav-search">
+                    <button class="search-icon-btn"><svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <input type="text" id="nav-search-input" class="search-input" placeholder="Search breed, category...">
+                    <div class="search-suggestions" id="search-suggestions"></div>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="icon-btn" id="theme-toggle-btn" title="Toggle Theme"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg></button>
+                    <a href="cart.html" class="icon-btn"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"></path></svg><span class="icon-badge cart-badge">0</span></a>
+                    <a href="login.html" class="btn btn-secondary btn-sm">Login</a>
+                    <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+                    <button class="mobile-toggle" id="mobile-toggle"><svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ==================== LOGIN FORM CONTAINER ==================== -->
+    <section class="container" style="padding: 5rem 1.5rem; display:flex; justify-content:center;">
+        <div style="width:100%; max-width:450px; background:var(--bg-card); padding:2.5rem; border-radius:var(--radius-md); border:1px solid var(--border-color); box-shadow:var(--shadow-md)">
+            <div style="text-align:center; margin-bottom:2rem">
+                <h2>Welcome Back</h2>
+                <p style="color:var(--text-muted); font-size:0.9rem">Sign in to your CattleVault account</p>
+            </div>
+
+            <!-- Role Selector Pills -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; background:var(--bg-alt); padding:0.25rem; border-radius:var(--radius-sm); margin-bottom:1.5rem">
+                <button type="button" class="btn btn-sm btn-primary" style="border-radius:var(--radius-sm)">Cattle Buyer</button>
+                <button type="button" class="btn btn-sm btn-secondary" style="border:none">Farm Seller</button>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="form-label">Email Address *</label>
+                    <input type="email" class="form-control" placeholder="buyer@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem">
+                        <label class="form-label" style="margin:0">Password *</label>
+                        <a href="#" style="font-size:0.8rem; color:var(--primary-color)">Forgot Password?</a>
+                    </div>
+                    <div style="position:relative">
+                        <input type="password" id="login-pass" class="form-control" placeholder="••••••••" required>
+                        <button type="button" onclick="const p = document.getElementById('login-pass'); p.type = p.type === 'password' ? 'text' : 'password';" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; color:var(--text-muted)">👁</button>
+                    </div>
+                </div>
+
+                <div class="form-group" style="display:flex; align-items:center; gap:0.5rem">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me" style="font-size:0.85rem">Remember me on this device</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" style="padding:0.85rem">Sign In</button>
+            </form>
+
+            <div style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:var(--text-muted)">
+                Don't have an account? <a href="register.html" style="color:var(--primary-color); font-weight:600">Register here</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom" style="border:none; padding:0; justify-content:center">
+                <p>&copy; 2026 CattleVault Diploma Project. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
